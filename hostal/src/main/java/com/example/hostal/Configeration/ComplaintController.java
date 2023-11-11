@@ -1,4 +1,4 @@
-package com.ictec.hostel.Configerration;
+package com.example.hostal.Configeration;
 import com.example.hostal.Entity.Complaint;
 import com.example.hostal.Service.ComplaintServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
