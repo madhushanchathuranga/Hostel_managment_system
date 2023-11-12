@@ -8,4 +8,3 @@ public interface StudentService {
 
     Student getStudentById(Integer id);
 }
-
