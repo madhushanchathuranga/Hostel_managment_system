@@ -1,7 +1,7 @@
 package com.example.hostal.Service;
 
-
 import com.example.hostal.Entity.Report;
+
 public interface ReportService {
     Report saveReport(Report report);
 
