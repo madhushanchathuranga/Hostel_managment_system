@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive HTML Table</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap");
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body>div{
+            min-height: 100vh;
+            display: flex;
+            font-family: 'Roboto', sans-serif;
+            background-color: #272c4a;
+        }
+
+        .table_responsive {
+            max-width: 900px;
+            border: 1px solid #00bcd4;
+            background-color: #efefef33;
+            padding: 15px;
+            overflow: auto;
+            margin: auto;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            font-size: 13px;
+            color: #444;
+            white-space: nowrap;
+            border-collapse: collapse;
+        }
+
+        table>thead {
+            background-color: #00bcd4;
+            color: #fff;
+        }
+
+        table>thead th {
+            padding: 15px;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #00000017;
+            padding: 10px 15px;
+        }
+
+        table>tbody>tr>td>img {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 2px 6px #0003;
+        }
+
+
+        .action_btn {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .action_btn>a {
+            text-decoration: none;
+            color: #444;
+            background: #fff;
+            border: 1px solid;
+            display: inline-block;
+            padding: 7px 20px;
+            font-weight: bold;
+            border-radius: 3px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .action_btn>a:nth-child(1) {
+            border-color: #26a69a;
+        }
+
+        .action_btn>a:nth-child(2) {
+            border-color: orange;
+        }
+
+        .action_btn>a:hover {
+            box-shadow: 0 3px 8px #0003;
+        }
+
+
+        table>tbody>tr {
+            background-color: #fff;
+            transition: 0.3s ease-in-out;
+        }
+
+
+        table>tbody>tr:nth-child(even) {
+            background-color: rgb(238, 238, 238);
+        }
+
+        table>tbody>tr:hover{
+            filter: drop-shadow(0px 2px 6px #0002);
+        }
+    </style>
+</head>
+<body bgcolor="#272c4a">
+<div class="table_responsive">
+    <table>
+        <thead>
+        <tr>
+            <th>Sl</th>
+            <th>Image</th>
+            <th>Room Number</th>
+            <th>Item Name</th>
+            <th>Complaint</th>
+            <th>StudentID</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody id="tableBody">
+        <!-- Table body content will be added here -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // Fetch data from the API and populate the table
+    fetch('http://localhost:8080/complaint/view') // Use the correct API endpoint URL
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('tableBody');
+            data.forEach((complaint, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td><img src="${complaint.image}" alt="Image" style="width: 60px; height: 60px; border-radius: 50%;"></td>
+                        <td>${complaint.roomId}</td>
+                        <td>${complaint.itemName}</td>
+                        <td>${complaint.description}</td>
+                        <td>${complaint.studentId}</td>
+                        <td>${complaint.status}</td>
+                        <td>
+                            <button class="resolvedBtn" data-complaint-id="${complaint.id}">Resolved</button>
+                        </td>
+                    `;
+                tableBody.appendChild(row);
+            });
+
+            // Add event listeners for the "Resolved" buttons
+            const resolvedButtons = document.querySelectorAll('.resolvedBtn');
+            resolvedButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const complaintId = button.getAttribute('data-complaint-id');
+
+                    // Send a POST request to mark the complaint as resolved
+                    fetch(`http://localhost:8080/complaint/${complaintId}/resolved`, { method: 'POST' })
+                        .then(response => {
+                            if (response.ok) {
+                                alert('Property data submitted successfully');
+                                console.log('Complaint marked as resolved');
+                                // You can also update the "Status" column in the table to "Resolved"
+                                const statusCell = button.parentElement.previousElementSibling;
+                                statusCell.textContent = 'Resolved';
+                            } else {
+                                console.error('Failed to mark complaint as resolved');
+                            }
+                        });
+                });
+            });
+        })
+        .catch(error => console.error('Error:', error));
+</script>
+</body>
+</html>
