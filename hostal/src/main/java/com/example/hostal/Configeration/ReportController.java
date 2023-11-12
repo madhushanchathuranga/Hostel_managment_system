@@ -1,4 +1,3 @@
-
 package com.example.hostal.Configeration;
 
 import com.example.hostal.Entity.Report;
@@ -30,4 +29,3 @@ public class ReportController {
     }
 
 }
-
