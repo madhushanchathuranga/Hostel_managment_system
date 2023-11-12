@@ -2,207 +2,207 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Form</title>
-  <link rel="stylesheet" href="../static/css/cmplaint.css">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-    }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="../static/css/cmplaint.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
 
-    body {
-      background: #272c4a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-family: "Montserrat", sans-serif;
-      font-size: 10px;
-      height: 100vh;
-      margin: -20px 0 50px;
-      padding: 10px;
-    }
+        body {
+            background: #272c4a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: "Montserrat", sans-serif;
+            font-size: 10px;
+            height: 100vh;
+            margin: -20px 0 50px;
+            padding: 10px;
+        }
 
-    .container {
-      background-color: #ffffff;
-      border-radius: 5px;
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-      position: relative;
-      overflow: hidden;
-      width: 768px;
-      max-width: 100%;
-      min-height: 522px;
-      min-width: 370px;
-    }
+        .container {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            position: relative;
+            overflow: hidden;
+            width: 768px;
+            max-width: 100%;
+            min-height: 522px;
+            min-width: 370px;
+        }
 
-    .card-container {
-      display: flex;
-    }
+        .card-container {
+            display: flex;
+        }
 
-    .left {
-      flex: 1;
-      height: 480px;
-      background-color: #00b4cf;
-    }
+        .left {
+            flex: 1;
+            height: 480px;
+            background-color: #00b4cf;
+        }
 
-    .right {
-      display: flex;
-      flex: 1;
-      height: 460px;
-      background-color: #ffffff;
-      justify-content: center;
-      align-items: center;
-    }
+        .right {
+            display: flex;
+            flex: 1;
+            height: 460px;
+            background-color: #ffffff;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .left {
-      display: flex;
-      flex: 1;
-      height: 522px;
-      justify-content: center;
-      align-items: center;
-      color: #ffffff;
-    }
+        .left {
+            display: flex;
+            flex: 1;
+            height: 522px;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+        }
 
 
-    .left-container {
-      height: 50%;
-      width: 80%;
-      text-align: center;
-      line-height: 22px
-    }
+        .left-container {
+            height: 50%;
+            width: 80%;
+            text-align: center;
+            line-height: 22px
+        }
 
-    .left p {
-      font-size: 0.9rem;
-    }
+        .left p {
+            font-size: 0.9rem;
+        }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
 
-    .right-container {
-      width: 70%;
-      height: 80%;
-      text-align: center;
-    }
+        .right-container {
+            width: 70%;
+            height: 80%;
+            text-align: center;
+        }
 
-    input,
-    textarea {
-      background-color: #eee;
-      border: none;
-      padding: 12px 15px;
-      margin: 8px 0;
-      width: 100%;
-      font-size: 0.9rem;
-    }
+        input,
+        textarea {
+            background-color: #eee;
+            border: none;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 100%;
+            font-size: 0.9rem;
+        }
 
-    input:focus,
-    textarea:focus {
-      outline: 1px solid #00b4cf;
-    }
+        input:focus,
+        textarea:focus {
+            outline: 1px solid #00b4cf;
+        }
 
-    button {
-      border-radius: 20px;
-      border: 1px solid #00b4cf;
-      background-color: #00b4cf;
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: bold;
-      padding: 12px 45px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: transform 80ms ease-out;
-      cursor: pointer;
-    }
+        button {
+            border-radius: 20px;
+            border: 1px solid #00b4cf;
+            background-color: #00b4cf;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 12px 45px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: transform 80ms ease-out;
+            cursor: pointer;
+        }
 
-    button:hover {
-      opacity: 0.7;
-    }
+        button:hover {
+            opacity: 0.7;
+        }
 
-    textarea {
-      height: 90px;
-    }
-    /* responsive */
+        textarea {
+            height: 90px;
+        }
+        /* responsive */
 
-    @media only screen and (max-width: 600px){
-      .left {
-        display: none;
-      }
+        @media only screen and (max-width: 600px){
+            .left {
+                display: none;
+            }
 
-      .lg-view {
-        display: none;
-      }
-    }
+            .lg-view {
+                display: none;
+            }
+        }
 
-    @media only screen and (min-width: 600px) {
-      .sm-view {
-        display: none;
-      }
-    }
+        @media only screen and (min-width: 600px) {
+            .sm-view {
+                display: none;
+            }
+        }
 
-  </style>
+    </style>
 </head>
 
 <body>
 <div class="container">
-  <div class="card-container">
-    <div class="left">
-      <!-- Left container content -->
+    <div class="card-container">
+        <div class="left">
+            <!-- Left container content -->
+        </div>
+        <div class="right">
+            <div class="right-container">
+                <h2 class="lg-view">Complaint Form</h2>
+                <h2 class="sm-view">Complaint Form</h2>
+                <form id="complaintForm">
+                    <input type="text" id="studentId" placeholder="studentId">
+                    <input type="text" id="itemID" placeholder="itemID">
+                    <input type="text" id="itemName" placeholder="itemName">
+                    <input type="text" id="roomId" placeholder="roomId">
+                    <textarea rows="10" id="description" placeholder="description"></textarea>
+                    <input type="text" id="image" placeholder="image">
+                    <button type="button" id="submitBtn">Send</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="right">
-      <div class="right-container">
-        <h2 class="lg-view">Complaint Form</h2>
-        <h2 class="sm-view">Complaint Form</h2>
-        <form id="complaintForm">
-          <input type="text" id="studentId" placeholder="studentId">
-          <input type="text" id="itemID" placeholder="itemID">
-          <input type="text" id="itemName" placeholder="itemName">
-          <input type="text" id="roomId" placeholder="roomId">
-          <textarea rows="10" id="description" placeholder="description"></textarea>
-          <input type="text" id="image" placeholder="image">
-          <button type="button" id="submitBtn">Send</button>
-        </form>
-      </div>
-    </div>
-  </div>
 </div>
 
 <script>
-  document.getElementById('submitBtn').addEventListener('click', function () {
-    // Create a JSON object from form data
-    const complaintData = {
-      studentId: document.getElementById('studentId').value,
-      itemID: document.getElementById('itemID').value,
-      itemName: document.getElementById('itemName').value,
-      roomId: document.getElementById('roomId').value,
-      description: document.getElementById('description').value,
-      image: document.getElementById('image').value,
-    };
+    document.getElementById('submitBtn').addEventListener('click', function () {
+        // Create a JSON object from form data
+        const complaintData = {
+            studentId: document.getElementById('studentId').value,
+            itemID: document.getElementById('itemID').value,
+            itemName: document.getElementById('itemName').value,
+            roomId: document.getElementById('roomId').value,
+            description: document.getElementById('description').value,
+            image: document.getElementById('image').value,
+        };
 
-    // Send a POST request to your API
-    fetch('http://localhost:8080/complaint/saveData', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(complaintData),
-    })
+        // Send a POST request to your API
+        fetch('http://localhost:8080/complaint/saveData', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(complaintData),
+        })
             .then(response => {
-              if (response.ok) {
-                alert('Complain data submitted successfully');
-                console.log('Complaint submitted successfully');
-              } else {
-                // Handle errors, e.g., show an error message
-                console.error('Failed to submit complaint');
-              }
+                if (response.ok) {
+                    alert('Complain data submitted successfully');
+                    console.log('Complaint submitted successfully');
+                } else {
+                    // Handle errors, e.g., show an error message
+                    console.error('Failed to submit complaint');
+                }
             })
             .catch(error => {
-              console.error('Error:', error);
+                console.error('Error:', error);
             });
-  });
+    });
 </script>
 </body>
 
