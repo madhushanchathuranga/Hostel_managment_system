@@ -1,8 +1,7 @@
 package com.example.hostal.Configeration;
 
-
-import com.example.hostel.Entity.Property;
-import com.example.hostel.Service.PropertyServiceImpl;
+import com.example.hostal.Entity.Property;
+import com.example.hostal.Service.PropertyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
