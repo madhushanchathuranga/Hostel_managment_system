@@ -126,4 +126,29 @@ public class AuthService {
         }
 
 
-      
+        public Users getUserByIndex(String user_index){
+            return userRepo.findByIndex(user_index)
+                    .orElseThrow(() -> new UsernameNotFoundException("User not found with Index: " + user_index));
+        }
+
+//    public Users updateUserProfile(Users users) {
+//        Integer id = users.getId();
+//
+//        Users user1 = userRepo.findById(id).get();
+//        user1.setFname(users.getFname());
+//        user1.setLname(users.getLname());
+//        user1.setPassword(passwordEncoder.encode(users.getPassword()));
+//        user1.setRole(users.getRole());
+//        return userRepo.save(user1);
+//    }
+        public Users getUserById (Long id){
+            return userRepo.findById(id).orElse(null);
+        }
+
+
+
+
+//    public Users updateUser(User users) {
+//        return updateRepo.save(users);
+//    }
+    }
