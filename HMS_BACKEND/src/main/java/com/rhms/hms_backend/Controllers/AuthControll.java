@@ -25,4 +25,41 @@ public class AuthControll {
 
     private final AuthService authService;
 /////////
-    
+@Autowired
+PasswordEncoder passwordEncoder;
+
+    @PostMapping("/register")
+    public ResponseEntity<AccessResponse> register(@RequestBody RegisterRequests request){
+        return ResponseEntity.ok(authService.register(request));
+    }
+
+    @PostMapping("/authenticate")
+
+    public ResponseEntity<AccessResponse>login(@RequestBody AccessRequest request){
+        return ResponseEntity.ok(authService.authenticate(request));
+    }
+
+
+
+    @GetMapping("/CurrentUser")
+    public nvBarDetails getCurrentUser(){  //Getting the CurrentUser username Using Authentication Interface that comes with Spring Security
+        Authentication authentication= SecurityContextHolder.getContext().getAuthentication();
+        String fname=authentication.getName();
+        return new nvBarDetails(fname);
+    }
+
+    @GetMapping("/UserProfile")
+    public ResponseEntity<Users> getCurrentUserProfile() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String user_index = authentication.getName();
+        Users userProfile = authService.getUserByIndex(user_index);
+
+        if (userProfile != null) {
+            return new ResponseEntity<>(userProfile, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+
+}
