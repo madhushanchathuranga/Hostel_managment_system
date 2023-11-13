@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3061cccd-e112-440b-946c-0e0d32b31320" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/HMS_BACKEND/src/main/java/com/rhms/hms_backend/Configurations/JWTAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/HMS_BACKEND/src/main/java/com/rhms/hms_backend/Configurations/JWTAuthFilter.java" afterDir="false" />
-    </list>
+    <list default="true" id="3061cccd-e112-440b-946c-0e0d32b31320" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +55,7 @@
       <workItem from="1699817909377" duration="2602000" />
       <workItem from="1699868864495" duration="683000" />
       <workItem from="1699869835276" duration="307000" />
-      <workItem from="1699870340632" duration="53000" />
+      <workItem from="1699870340632" duration="194000" />
     </task>
     <servers />
   </component>
