@@ -1,1 +1,4 @@
 # AdvanceDatabaseManagementSystemsGproject
+#hms
+#java
+#MYSQL
