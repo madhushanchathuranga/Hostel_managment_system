@@ -62,4 +62,78 @@ public class UserController {
     }
 
 ////////////////
-    
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateStudent(@PathVariable("id") Long id, @RequestBody Users updateStudent) {
+        Users existingStudent = userService.getStudentById(id);
+        if (existingStudent != null) {
+
+            existingStudent.setFname(updateStudent.getFname());
+            existingStudent.setLname(updateStudent.getLname());
+            existingStudent.setEmail(updateStudent.getEmail());
+            existingStudent.setUser_index(updateStudent.getUser_index());
+
+
+            Users updatedStudentObj = userService.updateStudent(existingStudent);
+            return ResponseEntity.ok(updatedStudentObj);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+
+    @GetMapping("/Wardens")
+    public List<Object[]> getWardenData() {
+        return userService.findWardenData();
+    }
+
+
+    @GetMapping("/Dean")
+    public List<Object[]> getDeanData() {
+        return userService.findDeanData();
+    }
+
+
+    @GetMapping("/SWarden")
+    public List<Object[]> getSwardenData() {
+        return userService.findSwardenData();
+    }
+
+
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+        try {
+            userService.deleteUserById(id);
+            return ResponseEntity.ok("User is  deleted successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error occurred while deleting User: " + e.getMessage());
+        }
+    }
+
+
+    @GetMapping("/CurrentUser")
+    public String getCurrentUser() {
+        // Getting the current user's user_index (assuming it's the same as the username)
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null) {
+            String userIndex = authentication.getName();
+            return userIndex;
+        } else {
+            return "No user authenticated";
+        }
+    }
+
+
+    @GetMapping("/totalRegisteredStudents")
+    public int getTotalRegisteredStudents() {
+        return userService.getTotalRegisteredStudents();
+    }
+
+
+
+
+
+}
