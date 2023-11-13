@@ -2,7 +2,6 @@ package com.rhms.hms_backend.Models;
 import jakarta.persistence.*;
 
 
-
 @Entity
 @Table(name = "property")
 public class Property {
